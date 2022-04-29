@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React , { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ const Nav = () => {
               class="inline-flex items-center"
             >
               <svg
-                class="w-8 text-teal-400"
+                class="w-8 text-sky-400"
                 viewBox="0 0 24 24"
                 strokeLinejoin="round"
                 strokeWidth="2"
@@ -34,21 +35,19 @@ const Nav = () => {
             </a>
             <ul class="items-center hidden space-x-8 lg:flex">
               <li>
-                <a
-                  href="/"
-                  aria-label="Our product"
-                  title="Our product"
-                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                <Link
+                  to="/inventory"
+                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
                 >
-                  Product
-                </a>
+                  Inventory
+                </Link>
               </li>
               <li>
                 <a
                   href="/"
                   aria-label="Our product"
                   title="Our product"
-                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
                 >
                   Features
                 </a>
@@ -58,7 +57,7 @@ const Nav = () => {
                   href="/"
                   aria-label="Product pricing"
                   title="Product pricing"
-                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
                 >
                   Pricing
                 </a>
@@ -68,7 +67,7 @@ const Nav = () => {
                   href="/"
                   aria-label="About us"
                   title="About us"
-                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
+                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
                 >
                   About us
                 </a>
@@ -78,7 +77,7 @@ const Nav = () => {
               <li>
                 <a
                   href="/"
-                  class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                  class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-700 focus:shadow-outline focus:outline-none"
                   aria-label="Sign up"
                   title="Sign up"
                 >
@@ -120,7 +119,7 @@ const Nav = () => {
                           class="inline-flex items-center"
                         >
                           <svg
-                            class="w-8 text-deep-purple-accent-400"
+                            class="w-8 text-red-400"
                             viewBox="0 0 24 24"
                             strokeLinejoin="round"
                             strokeWidth="2"
@@ -162,7 +161,7 @@ const Nav = () => {
                             href="/"
                             aria-label="Our product"
                             title="Our product"
-                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                           >
                             Product
                           </a>
@@ -172,7 +171,7 @@ const Nav = () => {
                             href="/"
                             aria-label="Our product"
                             title="Our product"
-                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                           >
                             Features
                           </a>
@@ -182,7 +181,7 @@ const Nav = () => {
                             href="/"
                             aria-label="Product pricing"
                             title="Product pricing"
-                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                           >
                             Pricing
                           </a>
@@ -192,7 +191,7 @@ const Nav = () => {
                             href="/"
                             aria-label="About us"
                             title="About us"
-                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                           >
                             About us
                           </a>
@@ -200,7 +199,7 @@ const Nav = () => {
                         <li>
                           <a
                             href="/"
-                            class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                            class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-700 focus:shadow-outline focus:outline-none"
                             aria-label="Sign up"
                             title="Sign up"
                           >

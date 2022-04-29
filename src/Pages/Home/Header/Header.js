@@ -1,3 +1,4 @@
+import React from 'react';
 import bannerpic from '../../../Pics/banner pic.jpg'
 
 const Header = () => {
@@ -7,7 +8,7 @@ const Header = () => {
                 <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
                     <div className="max-w-xl mb-6">
                         <div>
-                            <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-400">
+                            <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-sky-900 uppercase rounded-full bg-sky-400">
                                 New Colaboration
                             </p>
                         </div>
@@ -15,7 +16,7 @@ const Header = () => {
                             The quick, brown fox
                             <br className="hidden md:block" />
                             jumps over{' '}
-                            <span className="inline-block text-purple-400">
+                            <span className="inline-block text-red-700">
                                 a lazy dog
                             </span>
                         </h2>
@@ -28,14 +29,14 @@ const Header = () => {
                     <div className="flex flex-col items-center md:flex-row">
                         <a
                             href="/"
-                            className="inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                            className="inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-red-700 hover:bg-red-700 focus:shadow-outline focus:outline-none"
                         >
                             Apply Now
                         </a>
                         <a
                             href="/"
                             aria-label=""
-                            className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-purple-700"
+                            className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-red-700"
                         >
                             Learn more
                         </a>
