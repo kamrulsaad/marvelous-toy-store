@@ -1,14 +1,16 @@
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
-import auth from './firebase.init'
+import { Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home/Home/Home";
+import Nav from "./Pages/Shared/Navbar";
+
 
 function App() {
 
-  const [signIn] = useSignInWithGoogle(auth)
-
   return (
     <div>
-      <h1>Hello Assignment 11</h1>
-      <button onClick={() => signIn()} >GOogle</button>
+      <Nav></Nav>
+      <Routes>
+        <Route path="/" element={<Home></Home>}></Route>
+      </Routes>
     </div>
   );
 }
