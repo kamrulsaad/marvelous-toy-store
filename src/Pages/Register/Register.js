@@ -1,21 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
     return (
         <div>
-            <section class="h-screen">
-                <div class="container px-6 py-12 h-full">
+            <section>
+                <div class="container px-6 py-4 h-full mx-auto">
                     <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                         <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
                             <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                                class="w-full"
+                                src="https://webstockreview.net/images/deadpool-clipart-comic-5.png"
+                                class="lg:h-[700px] w-auto mx-auto"
                                 alt="Phone"
                             />
                         </div>
                         <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
                             <form>
+                                <h1 className='text-center text-5xl mb-5 text-red-500'>Sign Up</h1>
                                 <div class="mb-6">
                                     <input
                                         type="text"
@@ -40,6 +42,16 @@ const Register = () => {
                                         <label class="form-check-label inline-block text-gray-800"
                                         >Accept Terms and Conditions</label
                                         >
+                                    </div>
+                                    <div className="text-center lg:text-left">
+                                        <p className="text-sm font-semibold mt-2 pt-1 mb-0">
+                                            Already have an account?
+                                            <Link
+                                                to="/login"
+                                                className="text-red-500 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
+                                            > Login
+                                            </Link>
+                                        </p>
                                     </div>
                                 </div>
                                 <button

@@ -10,13 +10,14 @@ const Login = () => {
                     <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                         <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
                             <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                                class="w-full"
+                                src="https://www.pngitem.com/pimgs/m/1-17131_cartoon-iron-man-clip-art-png-cartoon-iron.png"
+                                class="lg:h-[700px] w-auto mx-auto"
                                 alt="Phone"
                             />
                         </div>
                         <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
                             <form>
+                                <h1 className='text-center text-5xl mb-5 text-red-500'>Log In</h1>
                                 <div class="mb-6">
                                     <input
                                         type="text"
