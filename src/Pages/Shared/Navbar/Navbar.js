@@ -8,8 +8,8 @@ const Nav = () => {
       <div class="bg-gray-900">
         <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
           <div class="relative flex items-center justify-between">
-            <a
-              href="/"
+            <Link
+              to="/"
               aria-label="Company"
               title="Company"
               class="inline-flex items-center"
@@ -32,7 +32,7 @@ const Nav = () => {
               <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
                 Company
               </span>
-            </a>
+            </Link>
             <ul class="items-center hidden space-x-8 lg:flex">
               <li>
                 <Link
@@ -43,46 +43,46 @@ const Nav = () => {
                 </Link>
               </li>
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   aria-label="Our product"
                   title="Our product"
                   class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
                 >
                   Features
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   aria-label="Product pricing"
                   title="Product pricing"
                   class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
                 >
                   Pricing
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   aria-label="About us"
                   title="About us"
                   class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
                 >
                   About us
-                </a>
+                </Link>
               </li>
             </ul>
             <ul class="items-center hidden space-x-8 lg:flex">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/login"
                   class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-700 focus:shadow-outline focus:outline-none"
                   aria-label="Sign up"
                   title="Sign up"
                 >
                   Sign up
-                </a>
+                </Link>
               </li>
             </ul>
             <div class="lg:hidden">
@@ -112,8 +112,8 @@ const Nav = () => {
                   <div class="p-5 bg-white border rounded shadow-sm">
                     <div class="flex items-center justify-between mb-4">
                       <div>
-                        <a
-                          href="/"
+                        <Link
+                          to="/"
                           aria-label="Company"
                           title="Company"
                           class="inline-flex items-center"
@@ -136,7 +136,7 @@ const Nav = () => {
                           <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                             Company
                           </span>
-                        </a>
+                        </Link>
                       </div>
                       <div>
                         <button
@@ -157,54 +157,54 @@ const Nav = () => {
                     <nav>
                       <ul class="space-y-4">
                         <li>
-                          <a
-                            href="/"
+                          <Link
+                            to="/"
                             aria-label="Our product"
                             title="Our product"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                           >
                             Product
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
-                            href="/"
+                          <Link
+                            to="/"
                             aria-label="Our product"
                             title="Our product"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                           >
                             Features
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
-                            href="/"
+                          <Link
+                            to="/"
                             aria-label="Product pricing"
                             title="Product pricing"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                           >
                             Pricing
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
-                            href="/"
+                          <Link
+                            to="/"
                             aria-label="About us"
                             title="About us"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                           >
                             About us
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
-                            href="/"
+                          <Link
+                            to="/login"
                             class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-700 focus:shadow-outline focus:outline-none"
                             aria-label="Sign up"
                             title="Sign up"
                           >
                             Sign up
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </nav>
