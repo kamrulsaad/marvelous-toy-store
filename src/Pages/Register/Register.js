@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
-const Login = () => {
+const Register = () => {
     return (
         <div>
             <section class="h-screen">
@@ -33,21 +32,15 @@ const Login = () => {
                                 </div>
 
                                 <div class="flex justify-between items-center mb-6">
-                                    <div className="text-center lg:text-left">
-                                        <p className="text-sm font-semibold mt-2 pt-1 mb-0">
-                                            Don't have an account?
-                                            <Link
-                                                to="/register"
-                                                className="text-red-500 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
-                                            > Register
-                                            </Link>
-                                        </p>
+                                    <div class="form-group form-check">
+                                        <input
+                                            type="checkbox"
+                                            class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                                        />
+                                        <label class="form-check-label inline-block text-gray-800"
+                                        >Accept Terms and Conditions</label
+                                        >
                                     </div>
-                                    <a
-                                        href="#!"
-                                        class="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out"
-                                    >Forgot password?</a
-                                    >
                                 </div>
                                 <button
                                     type="submit"
@@ -55,7 +48,7 @@ const Login = () => {
                                     data-mdb-ripple="true"
                                     data-mdb-ripple-color="light"
                                 >
-                                    Sign in
+                                    Sign up
                                 </button>
 
                                 <SocialLogin></SocialLogin>
@@ -68,4 +61,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

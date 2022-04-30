@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import AllProducts from "./Pages/AllProducts/AllProducts";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Nav from "./Pages/Shared/Navbar/Navbar";
 import Update from "./Pages/Update/Update";
@@ -17,6 +18,7 @@ function App() {
         <Route path="/inventory" element={<AllProducts></AllProducts>}></Route>
         <Route path="/inventory/:id" element={<Update></Update>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
