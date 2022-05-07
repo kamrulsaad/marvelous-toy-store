@@ -1,7 +1,5 @@
 [
     {
-        "_id": "626b93896d0ab0f91038285d",
-        "index": 1,
         "name": "Captain America",
         "stock": 4,
         "img": "https://i.ibb.co/hyVwMX1/cesar-hernandez-IHuse226f-E-unsplash.jpg",
@@ -11,8 +9,6 @@
         "packaged": "2020-04-02 12:55"
     },
     {
-        "_id": "626b93896d0ab0f91038285e",
-        "index": 2,
         "name": "Incredible Hulk",
         "stock": 8,
         "img": "https://i.ibb.co/vdfKMnn/gabriel-tovar-o-TKan-DGuga-A-unsplash.jpg",
@@ -22,8 +18,6 @@
         "packaged": "2020-12-23 07:33"
     },
     {
-        "_id": "626b93896d0ab0f91038285f",
-        "index": 3,
         "name": "Peter Parker",
         "stock": 12,
         "img": "https://i.ibb.co/DCxkH0W/hello-i-m-nik-Oklzj82ffs-Q-unsplash.jpg",
@@ -33,8 +27,6 @@
         "packaged": "2020-03-12 04:12"
     },
     {
-        "_id": "626b93896d0ab0f910382860",
-        "index": 4,
         "name": "Iron Man",
         "stock": 39,
         "img": "https://i.ibb.co/7zj0FJ3/igor-bumba-rkaah-In-Fl-Bg-unsplash.jpg",
@@ -44,8 +36,6 @@
         "packaged": "2021-12-08 11:52"
     },
     {
-        "_id": "626b93896d0ab0f910382863",
-        "index": 7,
         "name": "The Incredible Hulk",
         "stock": 17,
         "img": "https://i.ibb.co/xDvq0tR/limor-zellermayer-j5-MCxwa-P0-R0-unsplash.jpg",
@@ -55,8 +45,6 @@
         "packaged": "2021-07-02 03:02"
     },
     {
-        "_id": "626b93896d0ab0f910382864",
-        "index": 8,
         "name": "Doctor Strange",
         "stock": 14,
         "img": "https://i.ibb.co/129R29w/lucas-hoang-h2x-G7-FQbmc-I-unsplash.jpg",
@@ -66,8 +54,6 @@
         "packaged": "2021-04-22 05:48"
     },
     {
-        "_id": "626b93896d0ab0f910382865",
-        "index": 9,
         "name": "Iron Man Suit",
         "stock": 1,
         "img": "https://i.ibb.co/mS1SSRP/massimo-virgilio-NLhf-X5rt-GQY-unsplash.jpg",
@@ -77,8 +63,6 @@
         "packaged": "2022-02-07 05:04"
     },
     {
-        "_id": "626b93896d0ab0f910382866",
-        "index": 10,
         "name": "Thor",
         "stock": 6,
         "img": "https://i.ibb.co/nfZM1z6/mateusz-waclawek-oan1z-Osg-W6-M-unsplash.jpg",
@@ -88,8 +72,6 @@
         "packaged": "2020-12-20 10:49"
     },
     {
-        "_id": "626b93896d0ab0f910382867",
-        "index": 11,
         "name": "Groot & Ant-Man",
         "stock": 7,
         "img": "https://i.ibb.co/bHcnthK/mulyadi-GIfs-Amv2-IPg-unsplash.jpg",
@@ -99,8 +81,6 @@
         "packaged": "2020-08-04 03:27"
     },
     {
-        "_id": "626b93896d0ab0f910382868",
-        "index": 12,
         "name": "Stan Lee",
         "stock": 1,
         "img": "https://i.ibb.co/ZG0vcDj/mulyadi-l-QTPP1eg60o-unsplash.jpg",
@@ -110,8 +90,6 @@
         "packaged": "2020-12-12 12:08"
     },
     {
-        "_id": "626b93896d0ab0f910382869",
-        "index": 13,
         "name": "Iron Spidey",
         "stock": 22,
         "img": "https://i.ibb.co/tzwfDsw/mulyadi-MO7-HNb-W1-Mew-unsplash.jpg",
@@ -121,8 +99,6 @@
         "packaged": "2022-03-01 09:35"
     },
     {
-        "_id": "626b93896d0ab0f91038286a",
-        "index": 14,
         "name": "Puny God",
         "stock": 4,
         "img": "https://i.ibb.co/xJdcfNL/mulyadi-or-Yf8p3-Dv-Cc-unsplash.jpg",
@@ -132,8 +108,6 @@
         "packaged": "2020-02-25 07:43"
     },
     {
-        "_id": "626b93896d0ab0f91038286b",
-        "index": 15,
         "name": "Deadpool",
         "stock": 20,
         "img": "https://i.ibb.co/t4VyYBQ/mulyadi-qcy-OBGLs-GJM-unsplash.jpg",
@@ -143,8 +117,6 @@
         "packaged": "2022-01-05 12:14"
     },
     {
-        "_id": "626b93896d0ab0f91038286c",
-        "index": 16,
         "name": "Iron Man MK75",
         "stock": 20,
         "img": "https://i.ibb.co/p0Yn0D9/massimo-virgilio-SGB6o-QJQlc-Y-unsplash-1.jpg",
@@ -154,8 +126,6 @@
         "packaged": "2021-12-01 11:33"
     },
     {
-        "_id": "626b93896d0ab0f91038286d",
-        "index": 17,
         "name": "Groot",
         "stock": 36,
         "img": "https://i.ibb.co/WGdTsSf/jaromir-kavan-3-FA80-d8r-Ho-unsplash.jpg",
@@ -165,8 +135,6 @@
         "packaged": "2020-12-14 10:41"
     },
     {
-        "_id": "626b93896d0ab0f91038286e",
-        "index": 18,
         "name": "Spidey",
         "stock": 2,
         "img": "https://i.ibb.co/zSLT1Gh/mulyadi-v-Ru-Kovw-Lzuw-unsplash.jpg",
@@ -176,8 +144,6 @@
         "packaged": "2021-07-23 10:35"
     },
     {
-        "_id": "626b93896d0ab0f91038286f",
-        "index": 19,
         "name": "Black Widow",
         "stock": 17,
         "img": "https://i.ibb.co/XbQjGSM/sandra-gabriel-ii-Eom-GGQQw-unsplash.jpg",
@@ -187,8 +153,6 @@
         "packaged": "2022-03-06 05:47"
     },
     {
-        "_id": "626b93896d0ab0f910382870",
-        "index": 20,
         "name": "Baby Cap",
         "stock": 33,
         "img": "https://i.ibb.co/TKL4c7c/sumeet-b-WQ-E8g-Ic-U-unsplash.jpg",
@@ -198,8 +162,6 @@
         "packaged": "2022-02-12 03:57"
     },
     {
-        "_id": "626c67a724fb2d62a46bcaa2",
-        "index": 5,
         "name": "Spidey-Rock",
         "stock": 0,
         "img": "https://i.ibb.co/QjvMLkt/king-lip-b4-YJt1i3o-U4-unsplash.jpg",
@@ -209,8 +171,6 @@
         "packaged": "2021-09-21 05:50"
     },
     {
-        "_id": "626c67bb24fb2d62a46bcaa3",
-        "index": 6,
         "name": "Spidey-The-Great",
         "stock": 18,
         "img": "https://i.ibb.co/txDW8vF/king-lip-mp295uolf-Ds-unsplash.jpg",

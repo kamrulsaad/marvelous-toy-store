@@ -38,12 +38,10 @@ const Nav = () => {
             </li>
             <li>
               <Link
-                to="/"
-                aria-label="Our product"
-                title="Our product"
+                to="/addItem"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
               >
-                Features
+                Add Item
               </Link>
             </li>
             <li>
@@ -168,22 +166,18 @@ const Nav = () => {
                     <ul className="space-y-4">
                       <li>
                         <Link
-                          to="/"
-                          aria-label="Our product"
-                          title="Our product"
+                          to="/inventory"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                         >
-                          Product
+                          Inventory
                         </Link>
                       </li>
                       <li>
                         <Link
-                          to="/"
-                          aria-label="Our product"
-                          title="Our product"
+                          to="/addItem"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                         >
-                          Features
+                          Add Item
                         </Link>
                       </li>
                       <li>

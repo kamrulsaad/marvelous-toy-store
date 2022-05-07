@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const Update = () => {
     const [product, setProduct] = useState({})
@@ -17,9 +17,9 @@ const Update = () => {
 
 
     return (
-        <div className="flex justify-center my-8">
+        <div className="flex justify-center items-center flex-col my-8">
             <div className="rounded-lg shadow-lg bg-white max-w-sm">
-                    <img className="rounded-t-lg" src={img} alt="" />
+                <img className="rounded-t-lg" src={img} alt="" />
                 <div className="p-6">
                     <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
                         <p className="transition-colors duration-200 text-blue-gray-900 hover:text-red-700">
@@ -38,6 +38,12 @@ const Update = () => {
                     <button type="button" className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Deliver</button>
                 </div>
             </div>
+            <Link
+                    to="/inventory"
+                    className="flex mt-8 items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-red-700 hover:bg-red-700 focus:shadow-outline focus:outline-none"
+                >
+                    Manage Inventory
+                </Link>
         </div>
     );
 };
