@@ -1,221 +1,258 @@
-import React , { useState } from "react";
+import { signOut } from "firebase/auth";
+import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../../firebase.init";
+import Loading from "../Loading/Loading";
 
 const Nav = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-    return (
-      <div class="bg-gray-900">
-        <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-          <div class="relative flex items-center justify-between">
-            <Link
-              to="/"
-              aria-label="Company"
-              title="Company"
-              class="inline-flex items-center"
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, loading] = useAuthState(auth)
+
+  if (loading) return <Loading></Loading>
+
+  return (
+    <div class="bg-gray-900">
+      <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div class="relative flex items-center justify-between">
+          <Link
+            to="/"
+            aria-label="Company"
+            title="Company"
+            class="inline-flex items-center"
+          >
+            <svg
+              class="w-8 text-sky-400"
+              viewBox="0 0 24 24"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeMiterlimit="10"
+              stroke="currentColor"
+              fill="none"
             >
-              <svg
-                class="w-8 text-sky-400"
-                viewBox="0 0 24 24"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeMiterlimit="10"
-                stroke="currentColor"
-                fill="none"
+              <rect x="3" y="1" width="7" height="12" />
+              <rect x="3" y="17" width="7" height="6" />
+              <rect x="14" y="1" width="7" height="6" />
+              <rect x="14" y="11" width="7" height="12" />
+            </svg>
+            <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
+              Company
+            </span>
+          </Link>
+          <ul class="items-center hidden space-x-8 lg:flex">
+            <li>
+              <Link
+                to="/inventory"
+                class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
               >
-                <rect x="3" y="1" width="7" height="12" />
-                <rect x="3" y="17" width="7" height="6" />
-                <rect x="14" y="1" width="7" height="6" />
-                <rect x="14" y="11" width="7" height="12" />
+                Inventory
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                aria-label="Our product"
+                title="Our product"
+                class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
+              >
+                Features
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                aria-label="Product pricing"
+                title="Product pricing"
+                class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
+              >
+                Pricing
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                aria-label="About us"
+                title="About us"
+                class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
+              >
+                About us
+              </Link>
+            </li>
+          </ul>
+          <ul class="items-center hidden space-x-8 lg:flex">
+            {
+              user ?
+                <>
+                  <li>
+                    {user.photoURL ? <img className="h-10 w-10 cursor-pointer rounded-full" src={user?.photoURL} alt="" /> :
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd" />
+                      </svg>
+                    }
+                  </li>
+                  <li>
+                    <button
+                      class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-700 focus:shadow-outline focus:outline-none"
+                      onClick={() => signOut(auth)}
+                    >
+                      Sign out
+                    </button>
+                  </li>
+                </>
+                :
+                <>
+                  <li>
+                    <Link
+                      to="/login"
+                      class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-700 focus:shadow-outline focus:outline-none"
+                    >
+                      Log in
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/register"
+                      class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-700 focus:shadow-outline focus:outline-none"
+                      title="Sign up"
+                    >
+                      Sign up
+                    </Link>
+                  </li>
+                </>
+            }
+          </ul>
+          <div class="lg:hidden">
+            <button
+              aria-label="Open Menu"
+              title="Open Menu"
+              class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline"
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+                />
+                <path
+                  fill="currentColor"
+                  d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
+                />
+                <path
+                  fill="currentColor"
+                  d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
+                />
               </svg>
-              <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                Company
-              </span>
-            </Link>
-            <ul class="items-center hidden space-x-8 lg:flex">
-              <li>
-                <Link
-                  to="/inventory"
-                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
-                >
-                  Inventory
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  aria-label="Our product"
-                  title="Our product"
-                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
-                >
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  aria-label="Product pricing"
-                  title="Product pricing"
-                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
-                >
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  aria-label="About us"
-                  title="About us"
-                  class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
-                >
-                  About us
-                </Link>
-              </li>
-            </ul>
-            <ul class="items-center hidden space-x-8 lg:flex">
-              <li>
-                <Link
-                  to="/login"
-                  class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-700 focus:shadow-outline focus:outline-none"
-                  aria-label="Sign up"
-                  title="Sign up"
-                >
-                  Sign up
-                </Link>
-              </li>
-            </ul>
-            <div class="lg:hidden">
-              <button
-                aria-label="Open Menu"
-                title="Open Menu"
-                class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline"
-                onClick={() => setIsMenuOpen(true)}
-              >
-                <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
-                  <path
-                    fill="currentColor"
-                    d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
-                  />
-                  <path
-                    fill="currentColor"
-                    d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
-                  />
-                  <path
-                    fill="currentColor"
-                    d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
-                  />
-                </svg>
-              </button>
-              {isMenuOpen && (
-                <div class="absolute top-0 left-0 w-full">
-                  <div class="p-5 bg-white border rounded shadow-sm">
-                    <div class="flex items-center justify-between mb-4">
-                      <div>
+            </button>
+            {isMenuOpen && (
+              <div class="absolute top-0 left-0 w-full">
+                <div class="p-5 bg-white border rounded shadow-sm">
+                  <div class="flex items-center justify-between mb-4">
+                    <div>
+                      <Link
+                        to="/"
+                        aria-label="Company"
+                        title="Company"
+                        class="inline-flex items-center"
+                      >
+                        <svg
+                          class="w-8 text-red-400"
+                          viewBox="0 0 24 24"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeMiterlimit="10"
+                          stroke="currentColor"
+                          fill="none"
+                        >
+                          <rect x="3" y="1" width="7" height="12" />
+                          <rect x="3" y="17" width="7" height="6" />
+                          <rect x="14" y="1" width="7" height="6" />
+                          <rect x="14" y="11" width="7" height="12" />
+                        </svg>
+                        <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+                          Company
+                        </span>
+                      </Link>
+                    </div>
+                    <div>
+                      <button
+                        aria-label="Close Menu"
+                        title="Close Menu"
+                        class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
+                          <path
+                            fill="currentColor"
+                            d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <nav>
+                    <ul class="space-y-4">
+                      <li>
                         <Link
                           to="/"
-                          aria-label="Company"
-                          title="Company"
-                          class="inline-flex items-center"
+                          aria-label="Our product"
+                          title="Our product"
+                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                         >
-                          <svg
-                            class="w-8 text-red-400"
-                            viewBox="0 0 24 24"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeMiterlimit="10"
-                            stroke="currentColor"
-                            fill="none"
-                          >
-                            <rect x="3" y="1" width="7" height="12" />
-                            <rect x="3" y="17" width="7" height="6" />
-                            <rect x="14" y="1" width="7" height="6" />
-                            <rect x="14" y="11" width="7" height="12" />
-                          </svg>
-                          <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                            Company
-                          </span>
+                          Product
                         </Link>
-                      </div>
-                      <div>
-                        <button
-                          aria-label="Close Menu"
-                          title="Close Menu"
-                          class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                          onClick={() => setIsMenuOpen(false)}
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          aria-label="Our product"
+                          title="Our product"
+                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                         >
-                          <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
-                            <path
-                              fill="currentColor"
-                              d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <nav>
-                      <ul class="space-y-4">
-                        <li>
-                          <Link
-                            to="/"
-                            aria-label="Our product"
-                            title="Our product"
-                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
-                          >
-                            Product
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/"
-                            aria-label="Our product"
-                            title="Our product"
-                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
-                          >
-                            Features
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/"
-                            aria-label="Product pricing"
-                            title="Product pricing"
-                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
-                          >
-                            Pricing
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/"
-                            aria-label="About us"
-                            title="About us"
-                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
-                          >
-                            About us
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/login"
-                            class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-700 focus:shadow-outline focus:outline-none"
-                            aria-label="Sign up"
-                            title="Sign up"
-                          >
-                            Sign up
-                          </Link>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
+                          Features
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          aria-label="Product pricing"
+                          title="Product pricing"
+                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
+                        >
+                          Pricing
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/"
+                          aria-label="About us"
+                          title="About us"
+                          class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
+                        >
+                          About us
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/login"
+                          class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-700 hover:bg-red-700 focus:shadow-outline focus:outline-none"
+                          aria-label="Sign up"
+                          title="Sign up"
+                        >
+                          Sign up
+                        </Link>
+                      </li>
+                    </ul>
+                  </nav>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default Nav
