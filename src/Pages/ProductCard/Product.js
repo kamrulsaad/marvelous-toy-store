@@ -31,7 +31,7 @@ const Product = ({pd}) => {
                 >
                     {name}
                 </p>
-                <p className="flex items-center font-semibold transition-colors duration-200 text-red-400 hover:text-red-800">In Stock: {stock}</p>
+                <p className="flex items-center font-semibold transition-colors duration-200 text-red-400 hover:text-red-800">In Stock: {stock || <span className='text-gray-800 ml-1'> Sold Out </span>}</p>
                 <p className="mb-2 text-gray-700">
                     {about}
                 </p>

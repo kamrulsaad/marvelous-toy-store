@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import bannerpic from '../../../Pics/banner pic.jpg'
 
 const Header = () => {
@@ -9,30 +10,26 @@ const Header = () => {
                     <div className="max-w-xl mb-6">
                         <div>
                             <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-sky-900 uppercase rounded-full bg-sky-400">
-                                New Colaboration
+                                New Arrival
                             </p>
                         </div>
                         <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                            The quick, brown fox
-                            <br className="hidden md:block" />
-                            jumps over{' '}
                             <span className="inline-block text-red-700">
-                                a lazy dog
+                                MARVEL
                             </span>
+                            ous Toy Store
                         </h2>
                         <p className="text-base text-gray-700 md:text-lg">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                            quae. explicabo.
+                            Your Favourite warehouse of all kinds of marvel comic and movie based toys for your kids and collection. Find the toy of your choice or supply those by yourself.
                         </p>
                     </div>
                     <div className="flex flex-col items-center md:flex-row">
-                        <a
-                            href="/"
-                            className="inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-red-700 hover:bg-red-700 focus:shadow-outline focus:outline-none"
+                        <Link
+                            to="/inventory"
+                            className="inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-red-600 hover:bg-red-800 focus:shadow-outline focus:outline-none"
                         >
-                            Apply Now
-                        </a>
+                            Checkout Now
+                        </Link>
                         <a
                             href="/"
                             aria-label=""
