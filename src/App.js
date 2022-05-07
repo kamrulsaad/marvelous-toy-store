@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import AddItem from "./Pages/AddItem/AddItem";
 import AllProducts from "./Pages/AllProducts/AllProducts";
 import Home from "./Pages/Home/Home/Home";
@@ -8,6 +9,7 @@ import RequireAuth from "./Pages/RequireAuth/RequireAuth";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Nav from "./Pages/Shared/Navbar/Navbar";
 import Update from "./Pages/Update/Update";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
         <Route path="/register" element={<Register></Register>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

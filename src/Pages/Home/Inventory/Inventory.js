@@ -2,10 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 import Product from '../../ProductCard/Product';
+import Loading from '../../Shared/Loading/Loading';
 
 const Inventory = () => {
 
     const [products] = useProducts()
+
+    if(products.length === 0) return <Loading></Loading>
 
     const sixProducts = products.slice(0, 6)
 

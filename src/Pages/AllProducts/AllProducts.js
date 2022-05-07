@@ -1,10 +1,13 @@
 import React from 'react';
 import useProducts from '../../hooks/useProducts';
 import Product from '../ProductCard/Product';
+import Loading from '../Shared/Loading/Loading';
 
 const AllProducts = () => {
 
     const [products] = useProducts()
+
+    if(products.length === 0) return <Loading></Loading>
 
     return (
         <div className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">

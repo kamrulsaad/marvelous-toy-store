@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Slide, toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const AddItem = () => {
@@ -18,11 +19,10 @@ const AddItem = () => {
         const price = e.target.price.value
         const img = e.target.img.value
         const product = { name, email, stock, supplier, packaged, about, img, price: `$${price}` }
-        console.log(product);
 
         const url = 'http://localhost:5000/products'
         axios.post(url, product)
-            .then(res => console.log(res))
+            .then(res => toast('New Item Added', {transition: Slide, position: 'top-center'}))
         e.target.reset()
     }
 
