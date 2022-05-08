@@ -15,14 +15,14 @@ const Features = () => {
                                 Interactivity between team members and Customers is the key of the success.
                             </h4>
                             <p className="mt-4 text-lg leading-6 text-gray-500">
-                                Build a simply and powered collaborative space for all your team. Track, share, measure, you have a fully control, it&#x27;s never be simply and efficient.
+                                Enjoy a simple and powered collaborative space for all your team. Track, share, measure, you have a fully control, it&#x27;s never simple and efficient.
                             </p>
                             <ul className="mt-8 md:grid md:grid-cols-2 gap-6">
                                 <li className="mt-6 lg:mt-0">
                                     <div className="flex">
                                         <span className="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-sky-100 text-sky-800  drark:bg-transparent">
                                             <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd">
                                                 </path>
                                             </svg>
                                         </span>
@@ -35,7 +35,7 @@ const Features = () => {
                                     <div className="flex">
                                         <span className="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-sky-100 text-sky-800  drark:bg-transparent">
                                             <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd">
                                                 </path>
                                             </svg>
                                         </span>
@@ -48,7 +48,7 @@ const Features = () => {
                                     <div className="flex">
                                         <span className="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-sky-100 text-sky-800  drark:bg-transparent">
                                             <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd">
                                                 </path>
                                             </svg>
                                         </span>
@@ -61,7 +61,7 @@ const Features = () => {
                                     <div className="flex">
                                         <span className="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-sky-100 text-sky-800  drark:bg-transparent">
                                             <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd">
                                                 </path>
                                             </svg>
                                         </span>

@@ -31,11 +31,11 @@ const Header = () => {
                             Checkout Now
                         </Link>
                         <a
-                            href="/"
+                            href="/features"
                             aria-label=""
                             className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-red-700"
                         >
-                            Learn more
+                            Features
                         </a>
                     </div>
                 </div>

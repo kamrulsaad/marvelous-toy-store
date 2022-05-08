@@ -31,7 +31,7 @@ const AddItem = () => {
     return (
         <div>
             <h1 className='text-5xl text-center my-3 text-sky-600'>Add a New Item</h1>
-            <div className="flex justify-center">
+            <div className="md:flex mx-8 justify-center">
                 <form onSubmit={handleFormSubmit} className="mb-3 xl:w-96">
                     <input
                         type="text"
