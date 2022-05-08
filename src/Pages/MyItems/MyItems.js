@@ -1,9 +1,24 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import Product from '../ProductCard/Product';
 
 const MyItems = () => {
-    return (
-        <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full lg:py-10">
 
+    const [user] = useAuthState(auth)
+    const [myItmes, setMyItems] = useState([])
+
+    useEffect(() => {
+        axios.get(`http://localhost:5000/myItems?email=${user.email}`)
+        .then(res => setMyItems(res.data))
+    },[user])
+
+    return (
+        <div className="grid gap-8 lg:mx-20 my-4 mx-auto lg:grid-cols-3 max-w-sm  lg:max-w-full lg:py-10">
+            {
+                myItmes.map(item => <Product key={item._id} pd={item}></Product>)
+            }
         </div>
     );
 };

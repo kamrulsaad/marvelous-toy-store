@@ -21,9 +21,11 @@ const AddItem = () => {
         const product = { name, email, stock, supplier, packaged, about, img, price: `$${price}` }
 
         const url = 'http://localhost:5000/products'
+        const url2 = 'http://localhost:5000/myItems'
         axios.post(url, product)
             .then(res => toast.success('New Item Added', {transition: Slide, position: 'top-center'}))
-        e.target.reset()
+        axios.post(url2, product)
+        // e.target.reset()
     }
 
     return (

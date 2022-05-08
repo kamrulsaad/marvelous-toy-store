@@ -10,6 +10,8 @@ import Footer from "./Pages/Shared/Footer/Footer";
 import Nav from "./Pages/Shared/Navbar/Navbar";
 import Update from "./Pages/Update/Update";
 import 'react-toastify/dist/ReactToastify.css';
+import MyItems from "./Pages/MyItems/MyItems";
+import NotFound from "./Pages/NotFound/NotFound";
 
 
 function App() {
@@ -21,9 +23,11 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/inventory" element={<AllProducts></AllProducts>}></Route>
         <Route path="/inventory/:id" element={<RequireAuth><Update></Update></RequireAuth>}></Route>
+        <Route path="/myItems" element={<RequireAuth><MyItems></MyItems></RequireAuth>}></Route>
         <Route path="/addItem" element={<RequireAuth><AddItem></AddItem></RequireAuth>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>

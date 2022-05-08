@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { Slide, toast } from 'react-toastify';
 
 const Update = () => {
     const [product, setProduct] = useState({})
@@ -18,7 +19,7 @@ const Update = () => {
         const decreasedStockAmount = { stock: stock - 1 };
         const url = `http://localhost:5000/products/${id}`
         axios.put(url, decreasedStockAmount)
-            .then(res => console.log(res))
+            .then(res => toast.success('Product amount decreased.', {transition: Slide}))
     }
 
     const handleAmountUpdate = (e) => {
@@ -27,7 +28,9 @@ const Update = () => {
         const updatedStockAmount = { stock : stock + updatedAmount};
         const url = `http://localhost:5000/products/${id}`
         axios.put(url, updatedStockAmount)
-            .then(res => console.log(res))
+            .then(res => toast.success('Product Updated.', {transition: Slide}))
+
+        e.target.reset()
     }
 
 

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Slide, toast } from 'react-toastify';
 import useProducts from '../../hooks/useProducts';
 
@@ -87,8 +88,8 @@ const TableRow = ({ pd }) => {
                            border-b border-r border-[#E8E8E8]
                            "
                 >
-                    <a
-                        href="/"
+                    <Link
+                        to={`/inventory/${_id}`}
                         class="
                               border border-sky-200
                               py-2
@@ -101,7 +102,7 @@ const TableRow = ({ pd }) => {
                               "
                     >
                         Update
-                    </a>
+                    </Link>
                 </td>
                 <td
                     class="
