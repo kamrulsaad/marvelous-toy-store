@@ -12,6 +12,8 @@ import Update from "./Pages/Update/Update";
 import 'react-toastify/dist/ReactToastify.css';
 import MyItems from "./Pages/MyItems/MyItems";
 import NotFound from "./Pages/NotFound/NotFound";
+import Features from "./Pages/Features/Features";
+import Blogs from "./Pages/Blogs/Blogs";
 
 
 function App() {
@@ -21,11 +23,13 @@ function App() {
       <Nav></Nav>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/inventory" element={<AllProducts></AllProducts>}></Route>
+        <Route path="/inventory" element={<RequireAuth><AllProducts></AllProducts></RequireAuth>}></Route>
         <Route path="/inventory/:id" element={<RequireAuth><Update></Update></RequireAuth>}></Route>
         <Route path="/myItems" element={<RequireAuth><MyItems></MyItems></RequireAuth>}></Route>
         <Route path="/addItem" element={<RequireAuth><AddItem></AddItem></RequireAuth>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/features" element={<Features></Features>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

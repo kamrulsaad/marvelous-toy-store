@@ -25,7 +25,7 @@ const AddItem = () => {
         axios.post(url, product)
             .then(res => toast.success('New Item Added', {transition: Slide, position: 'top-center'}))
         axios.post(url2, product)
-        // e.target.reset()
+        e.target.reset()
     }
 
     return (

@@ -30,15 +30,23 @@ const Nav = () => {
           <ul className="items-center hidden space-x-8 lg:flex">
             <li>
               <Link
-                to="/inventory"
+                to="/features"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
               >
-                Inventory
+                Features
               </Link>
             </li>
             {
               user &&
               <>
+                <li>
+                  <Link
+                    to="/inventory"
+                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
+                  >
+                    Inventory
+                  </Link>
+                </li>
                 <li>
                   <Link
                     to="/myItems"
@@ -61,12 +69,10 @@ const Nav = () => {
             }
             <li>
               <Link
-                to="/"
-                aria-label="About us"
-                title="About us"
+                to="/blogs"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
               >
-                About us
+                Blogs
               </Link>
             </li>
           </ul>
@@ -84,7 +90,10 @@ const Nav = () => {
                   <li>
                     <button
                       className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-800 focus:shadow-outline focus:outline-none"
-                      onClick={() => signOut(auth)}
+                      onClick={() => {
+                        localStorage.removeItem("accessToken")
+                        signOut(auth)
+                      }}
                     >
                       Sign out
                     </button>
@@ -171,14 +180,22 @@ const Nav = () => {
                     <ul className="space-y-4">
                       <li>
                         <Link
-                          to="/inventory"
+                          to="/features"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                         >
-                          Inventory
+                          Features
                         </Link>
                       </li>
                       {user &&
                         <>
+                          <li>
+                            <Link
+                              to="/inventory"
+                              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
+                            >
+                              Inventory
+                            </Link>
+                          </li>
                           <li>
                             <Link
                               to="/addItem"
@@ -189,7 +206,7 @@ const Nav = () => {
                           </li>
                           <li>
                             <Link
-                              to="/"
+                              to="/myItems"
                               aria-label="Product pricing"
                               title="Product pricing"
                               className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
@@ -200,12 +217,12 @@ const Nav = () => {
                         </>}
                       <li>
                         <Link
-                          to="/"
-                          aria-label="About us"
-                          title="About us"
+                          to="/blogs"
+                          aria-label="Blogs"
+                          title="Blogs"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
                         >
-                          About us
+                          Blogs
                         </Link>
                       </li>
                       {
@@ -220,7 +237,10 @@ const Nav = () => {
                           <li>
                             <button
                               className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-800 focus:shadow-outline focus:outline-none"
-                              onClick={() => signOut(auth)}
+                              onClick={() => {
+                                localStorage.removeItem("accessToken")
+                                signOut(auth)
+                              }}
                             >
                               Sign out
                             </button>

@@ -2,18 +2,22 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Slide, toast } from 'react-toastify';
+import Loading from '../Shared/Loading/Loading';
 
 const Update = () => {
     const [product, setProduct] = useState({})
     const { supplier, img, name, packaged, about, stock } = product;
 
+    
     const { id } = useParams()
-
+    
     useEffect(() => {
         fetch(`http://localhost:5000/products/${id}`)
-            .then(res => res.json())
-            .then(data => setProduct(data))
+        .then(res => res.json())
+        .then(data => setProduct(data))
     }, [id, product])
+    
+    if(product === {}) return <Loading></Loading>
 
     const handleAmountDecrease = () => {
         const decreasedStockAmount = { stock: stock - 1 };
@@ -25,6 +29,7 @@ const Update = () => {
     const handleAmountUpdate = (e) => {
         e.preventDefault()
         const updatedAmount = parseInt(e.target.stock.value);
+        if(updatedAmount <= 0) return toast.error("Please provide a valid number", {transition: Slide}) 
         const updatedStockAmount = { stock : stock + updatedAmount};
         const url = `http://localhost:5000/products/${id}`
         axios.put(url, updatedStockAmount)
@@ -42,6 +47,9 @@ const Update = () => {
                     <div className="mb-3 text-xs font-semibold tracking-wide uppercase">
                         <p className="transition-colors duration-200 text-blue-gray-900 hover:text-red-700">
                             Supplier:  {supplier}
+                        </p>
+                        <p className="transition-colors duration-200 text-blue-gray-900 hover:text-red-700">
+                            Id:  {id}
                         </p>
                         <br />
                         <p className="text-gray-600">Imported — {packaged}</p>

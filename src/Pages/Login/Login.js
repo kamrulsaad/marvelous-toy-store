@@ -1,9 +1,10 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import React, { useEffect, useState } from 'react';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { Slide, toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading/Loading';
@@ -12,23 +13,33 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 const Login = () => {
 
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth)
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth)
+    const [email, setEmail] = useState('')
+
+    const handleEmailBlur = e => setEmail(e.target.value);
 
     const navigate = useNavigate()
     const location = useLocation()
     const [token] = useToken(user)
     const from = location?.state?.from?.pathname || '/'
 
-    useEffect(() => { if (token) navigate(from, {replace: true}) }, [navigate, token, from])
+    useEffect(() => { if (token) navigate(from, { replace: true }) }, [navigate, token, from])
 
-    if(loading) return <Loading></Loading>
+    if (loading || sending) return <Loading></Loading>
 
     const handleFormSubmit = async e => {
         e.preventDefault()
-        const email = e.target.email.value
         const password = e.target.password.value
         await signInWithEmailAndPassword(email, password)
-        const {data} = await axios.post('http://localhost:5000/getToken', {email})
+        const { data } = await axios.post('http://localhost:5000/getToken', { email })
         localStorage.setItem("accessToken", data.accessToken)
+    }
+
+    const handlePasswordReset = async () => {
+        if (!email) return toast.warn("Please enter your email", { transition: Slide })
+        await sendPasswordResetEmail(email)
+        if (resetError) return toast.error(resetError.message, { transition: Slide })
+        else return toast.success("Please Check your email to reset your password")
     }
 
     return (
@@ -44,12 +55,12 @@ const Login = () => {
                             />
                         </div>
                         <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
+                            <h1 className='text-center text-5xl mb-5 text-red-500'>Log In</h1>
                             <form onSubmit={handleFormSubmit}>
-                                <h1 className='text-center text-5xl mb-5 text-red-500'>Log In</h1>
                                 <div className="mb-6">
                                     <input
                                         type="email"
-                                        name='email'
+                                        onBlur={handleEmailBlur}
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         placeholder="Email address"
                                         required
@@ -78,20 +89,20 @@ const Login = () => {
                                             </Link>
                                         </p>
                                     </div>
-                                    <a
-                                        href="#!"
+                                    <button
+                                        onClick={handlePasswordReset}
                                         className="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out"
-                                    >Forgot password?</a
-                                    >
+                                    >Forgot password?
+                                    </button>
                                 </div>
-                                <button
-                                    type="submit"
-                                    className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
+                                <input
+                                    type='submit'
+                                    className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none cursor-pointer focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
                                     data-mdb-ripple="true"
                                     data-mdb-ripple-color="light"
-                                >
-                                    Sign in
-                                </button>
+                                    value="Login"
+                                    />
+                                    
 
                                 <SocialLogin></SocialLogin>
                             </form>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth'
@@ -8,7 +8,9 @@ import { useNavigate } from 'react-router-dom';
 import useToken from '../../hooks/useToken';
 
 const Register = () => {
-    
+
+    const [checked, setChecked] = useState(false)
+
     const [
         createUserWithEmailAndPassword,
         user,
@@ -68,6 +70,8 @@ const Register = () => {
                                 <div className="flex justify-between items-center mb-6">
                                     <div className="form-group form-check">
                                         <input
+                                            onChange={() => setChecked(!checked)}
+                                            checked={checked}
                                             type="checkbox"
                                             className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                                         />
@@ -88,7 +92,8 @@ const Register = () => {
                                 </div>
                                 <button
                                     type="submit"
-                                    className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
+                                    disabled={!checked}
+                                    className={`inline-block px-7 py-3 ${checked ? 'bg-blue-600 active:bg-blue-800  hover:bg-blue-700 focus:bg-blue-700' : "bg-blue-300 active:bg-blue-300 cursor-not-allowed hover:bg-blue-300 focus:bg-blue-300"} text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full`}
                                     data-mdb-ripple="true"
                                     data-mdb-ripple-color="light"
                                 >
