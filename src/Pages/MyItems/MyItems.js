@@ -16,7 +16,7 @@ const MyItems = () => {
     
     useEffect(() => {
         const email = user?.email
-        const url = `http://localhost:5000/myItems?email=${email}`
+        const url = `https://marvelous-toy-store.herokuapp.com/myItems?email=${email}`
         
         const getToken = async () => {
             try{
@@ -34,7 +34,7 @@ const MyItems = () => {
 
         getToken()
 
-    },[user, navigate])
+    },[user, navigate, myItmes])
     if(!myItmes.length) return <Loading>Sorry, No Data Found</Loading>
     
     return (

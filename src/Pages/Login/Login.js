@@ -31,7 +31,7 @@ const Login = () => {
         e.preventDefault()
         const password = e.target.password.value
         await signInWithEmailAndPassword(email, password)
-        const { data } = await axios.post('http://localhost:5000/getToken', { email })
+        const { data } = await axios.post('https://marvelous-toy-store.herokuapp.com/getToken', { email })
         localStorage.setItem("accessToken", data.accessToken)
     }
 

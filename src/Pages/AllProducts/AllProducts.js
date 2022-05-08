@@ -13,40 +13,40 @@ const AllProducts = () => {
     return (
         <div className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
             <h1 className='text-5xl text-center font-medium my-2'>Manage Inventory</h1>
-            <section class="bg-white py-4">
+            <section className="bg-white py-4">
                 <div>
-                    <div class="flex flex-wrap">
-                        <div class="w-full">
-                            <div class="max-w-full overflow-x-scroll md:overflow-visible">
-                                <table class="table-auto w-full">
+                    <div className="flex flex-wrap">
+                        <div className="w-full">
+                            <div className="max-w-full overflow-x-scroll md:overflow-visible">
+                                <table className="table-auto w-full">
                                     <thead>
-                                        <tr class="bg-red-500 text-center">
+                                        <tr className="bg-red-500 text-center">
                                             <th
-                                                class=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 border-l border-transparent ">
+                                                className=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 border-l border-transparent ">
                                                 Name
                                             </th>
                                             <th
-                                                class=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 ">
+                                                className=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 ">
                                                 Price
                                             </th>
                                             <th
-                                                class=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 ">
+                                                className=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 ">
                                                 Quantity
                                             </th>
                                             <th
-                                                class=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 ">
+                                                className=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 ">
                                                 Supplier
                                             </th>
                                             <th
-                                                class=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 ">
+                                                className=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 ">
                                                 Packaged
                                             </th>
                                             <th
-                                                class=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 border-r border-transparent ">
+                                                className=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 border-r border-transparent ">
                                                 Register
                                             </th>
                                             <th
-                                                class=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 border-r border-transparent ">
+                                                className=" w-1/6 min-w-[160px] text-lg font-semibold text-white py-4 lg:py-7 px-3 lg:px-4 border-r border-transparent ">
                                                 Register
                                             </th>
                                         </tr>

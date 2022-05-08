@@ -1,23 +1,37 @@
 import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Slide, toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 import useProducts from '../../hooks/useProducts';
 
 const TableRow = ({ pd }) => {
 
-    const[products, setProducts] = useProducts()
+    const [products, setProducts] = useProducts()
     const { supplier, name, packaged, stock, price, _id } = pd;
 
     const handleDelete = id => {
-        const agreed = window.confirm("Are You Sure you want to delete this item?")
-        if(!agreed) return
-        const url = `http://localhost:5000/products/${id}`
-        axios.delete(url)
-        .then(res => {
-            const newProducts = products.filter(product => product._id !== id)
-            setProducts(newProducts)
-            toast.success('Product Deleted', {position: 'top-center', transition: Slide})
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const url = `https://marvelous-toy-store.herokuapp.com/products/${id}`
+                axios.delete(url)
+                    .then(res => {
+                        const newProducts = products.filter(product => product._id !== id)
+                        setProducts(newProducts)
+                    })
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
         })
     }
 
@@ -25,39 +39,39 @@ const TableRow = ({ pd }) => {
         <>
             <tr>
                 <td
-                    class=" text-dark font-medium text-base py-5 px-2 bg-red-100 border-b border-l border-[#E8E8E8] ">
-                        {name}
+                    className=" text-dark font-medium text-base py-5 px-2 bg-red-100 border-b border-l border-[#E8E8E8] ">
+                    {name}
                 </td>
                 <td
-                    class=" text-center text-dark font-medium text-base py-5 px-2 bg-white border-b border-[#E8E8E8] ">
+                    className=" text-center text-dark font-medium text-base py-5 px-2 bg-white border-b border-[#E8E8E8] ">
                     {price}
                 </td>
                 <td
-                    class=" text-center text-dark font-medium text-base py-5 px-2 bg-[#F3F6FF] border-b border-[#E8E8E8]">
-                    {stock || 'Sold Out' }
+                    className=" text-center text-dark font-medium text-base py-5 px-2 bg-[#F3F6FF] border-b border-[#E8E8E8]">
+                    {stock || 'Sold Out'}
                 </td>
                 <td
-                    class=" text-center text-dark font-medium text-base py-5 px-2 bg-white border-b border-[#E8E8E8] ">
+                    className=" text-center text-dark font-medium text-base py-5 px-2 bg-white border-b border-[#E8E8E8] ">
                     {supplier}
                 </td>
                 <td
-                    class=" text-center text-dark font-medium text-base py-5 px-2 bg-[#F3F6FF] border-b border-[#E8E8E8] "
->
+                    className=" text-center text-dark font-medium text-base py-5 px-2 bg-[#F3F6FF] border-b border-[#E8E8E8] "
+                >
                     {packaged}
                 </td>
                 <td
-                    class=" text-center text-dark font-medium text-base py-5 px-2 bg-white border-b border-r border-[#E8E8E8] ">
+                    className=" text-center text-dark font-medium text-base py-5 px-2 bg-white border-b border-r border-[#E8E8E8] ">
                     <Link
                         to={`/inventory/${_id}`}
-                        class=" border border-sky-200 py-2 px-6 text-sky-400 inline-block rounded transition-all duration-300 hover:bg-sky-600 hover:text-white ">
+                        className=" border border-sky-200 py-2 px-6 text-sky-400 inline-block rounded transition-all duration-300 hover:bg-sky-600 hover:text-white ">
                         Update
                     </Link>
                 </td>
                 <td
-                    class=" text-center text-dark font-medium text-base py-5 px-2 bg-white border-b border-r border-[#E8E8E8] ">
+                    className=" text-center text-dark font-medium text-base py-5 px-2 bg-white border-b border-r border-[#E8E8E8] ">
                     <button
-                    onClick={() => handleDelete(_id)}
-                        class=" border border-red-200 py-2 px-6 text-red-400 inline-block rounded transition-all duration-300 hover:bg-red-600 hover:text-white ">
+                        onClick={() => handleDelete(_id)}
+                        className=" border border-red-200 py-2 px-6 text-red-400 inline-block rounded transition-all duration-300 hover:bg-red-600 hover:text-white ">
                         Delete
                     </button>
                 </td>

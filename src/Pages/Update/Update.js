@@ -12,7 +12,7 @@ const Update = () => {
     const { id } = useParams()
     
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://marvelous-toy-store.herokuapp.com/products/${id}`)
         .then(res => res.json())
         .then(data => setProduct(data))
     }, [id, product])
@@ -21,7 +21,7 @@ const Update = () => {
 
     const handleAmountDecrease = () => {
         const decreasedStockAmount = { stock: stock - 1 };
-        const url = `http://localhost:5000/products/${id}`
+        const url = `https://marvelous-toy-store.herokuapp.com/products/${id}`
         axios.put(url, decreasedStockAmount)
             .then(res => toast.success('Product amount decreased.', {transition: Slide}))
     }
@@ -31,7 +31,7 @@ const Update = () => {
         const updatedAmount = parseInt(e.target.stock.value);
         if(updatedAmount <= 0) return toast.error("Please provide a valid number", {transition: Slide}) 
         const updatedStockAmount = { stock : stock + updatedAmount};
-        const url = `http://localhost:5000/products/${id}`
+        const url = `https://marvelous-toy-store.herokuapp.com/products/${id}`
         axios.put(url, updatedStockAmount)
             .then(res => toast.success('Product Updated.', {transition: Slide}))
 

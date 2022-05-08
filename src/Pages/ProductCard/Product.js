@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import useProducts from '../../hooks/useProducts';
 
 const Product = ({pd}) => {
@@ -9,13 +10,28 @@ const Product = ({pd}) => {
     const {supplier, img, name, packaged, about, stock, _id, price} = pd; 
 
     const handleDelete = id => {
-        const agreed = window.confirm("Are You Sure you want to delete this item?")
-        if(!agreed) return
-        const url = `http://localhost:5000/products/${id}`
-        axios.delete(url)
-        .then(res => {
-            const newProducts = products.filter(product => product._id !== id)
-            setProducts(newProducts)
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const url = `https://marvelous-toy-store.herokuapp.com/products/${id}`
+                axios.delete(url)
+                    .then(res => {
+                        const newProducts = products.filter(product => product._id !== id)
+                        setProducts(newProducts)
+                    })
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
         })
     }
 
