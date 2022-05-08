@@ -1,9 +1,11 @@
+import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
@@ -13,17 +15,20 @@ const Login = () => {
 
     const navigate = useNavigate()
     const location = useLocation()
+    const [token] = useToken(user)
     const from = location?.state?.from?.pathname || '/'
 
-    useEffect(() => { if (user) navigate(from, {replace: true}) }, [navigate, user, from])
+    useEffect(() => { if (token) navigate(from, {replace: true}) }, [navigate, token, from])
 
     if(loading) return <Loading></Loading>
 
-    const handleFormSubmit = e => {
+    const handleFormSubmit = async e => {
         e.preventDefault()
         const email = e.target.email.value
         const password = e.target.password.value
-        signInWithEmailAndPassword(email, password)
+        await signInWithEmailAndPassword(email, password)
+        const {data} = await axios.post('http://localhost:5000/getToken', {email})
+        localStorage.setItem("accessToken", data.accessToken)
     }
 
     return (

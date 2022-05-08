@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import auth from '../../firebase.init'
 import Loading from '../Shared/Loading/Loading';
 import { useNavigate } from 'react-router-dom';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
     
@@ -15,9 +16,10 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
+    const [token] = useToken(user)
     const navigate = useNavigate()
 
-    useEffect(() => { if (user) navigate('/') }, [navigate, user])
+    useEffect(() => { if (token) navigate('/') }, [navigate, token])
 
     if (loading) return <Loading></Loading>
 
