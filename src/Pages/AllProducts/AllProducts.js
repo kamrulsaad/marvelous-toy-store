@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import useProducts from '../../hooks/useProducts';
 import Loading from '../Shared/Loading/Loading';
 import TableRow from './TableRow';
+import {motion} from 'framer-motion'
 
 const AllProducts = () => {
 
@@ -11,7 +12,7 @@ const AllProducts = () => {
     if (products.length === 0) return <Loading></Loading>
 
     return (
-        <div className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
+        <motion.div initial={{width: 0}} animate={{width: '100%'}} exit={{x: window.innerWidth, transition: {duration: 0.5}}} className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
             <h1 className='text-5xl text-center font-medium my-2'>Manage Inventory</h1>
             <section className="bg-white py-4">
                 <div>
@@ -70,7 +71,7 @@ const AllProducts = () => {
                     Add New Item
                 </Link>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

@@ -9,6 +9,7 @@ import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { motion } from 'framer-motion';
 
 const Login = () => {
 
@@ -43,7 +44,7 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <motion.div initial={{width: 0}} animate={{width: '100%'}} exit={{x: window.innerWidth, transition: {duration: 0.5}}} >
             <section>
                 <div className="container px-6 py-12 h-full">
                     <div className="flex w-full justify-center items-center flex-wrap h-full g-6 text-gray-800">
@@ -110,7 +111,7 @@ const Login = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </motion.div>
     );
 };
 

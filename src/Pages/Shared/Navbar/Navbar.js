@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
 import Loading from "../Loading/Loading";
 import logo from '../../../Pics/logo.png'
+import CustomLink from "../CustomLink/CustomLink";
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,51 +30,51 @@ const Nav = () => {
           </Link>
           <ul className="items-center hidden space-x-8 lg:flex">
             <li>
-              <Link
+              <CustomLink
                 to="/features"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
               >
                 Features
-              </Link>
+              </CustomLink>
             </li>
             {
               user &&
               <>
                 <li>
-                  <Link
+                  <CustomLink
                     to="/inventory"
                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
                   >
                     Inventory
-                  </Link>
+                  </CustomLink>
                 </li>
                 <li>
-                  <Link
+                  <CustomLink
                     to="/myItems"
                     aria-label="Product pricing"
                     title="Product pricing"
                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
                   >
                     My Items
-                  </Link>
+                  </CustomLink>
                 </li>
                 <li>
-                  <Link
+                  <CustomLink
                     to="/addItem"
                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
                   >
                     Add Item
-                  </Link>
+                  </CustomLink>
                 </li>
               </>
             }
             <li>
-              <Link
+              <CustomLink
                 to="/blogs"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
               >
                 Blogs
-              </Link>
+              </CustomLink>
             </li>
           </ul>
           <ul className="items-center hidden space-x-8 lg:flex">
@@ -102,21 +103,21 @@ const Nav = () => {
                 :
                 <>
                   <li>
-                    <Link
+                    <CustomLink
                       to="/login"
                       className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-800 focus:shadow-outline focus:outline-none"
                     >
                       Log in
-                    </Link>
+                    </CustomLink>
                   </li>
                   <li>
-                    <Link
+                    <CustomLink
                       to="/register"
                       className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-800 focus:shadow-outline focus:outline-none"
                       title="Sign up"
                     >
                       Sign up
-                    </Link>
+                    </CustomLink>
                   </li>
                 </>
             }

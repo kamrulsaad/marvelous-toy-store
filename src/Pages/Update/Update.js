@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Slide, toast } from 'react-toastify';
 import Loading from '../Shared/Loading/Loading';
+import { motion } from 'framer-motion';
 
 const Update = () => {
     const [product, setProduct] = useState({})
@@ -40,7 +41,7 @@ const Update = () => {
 
 
     return (
-        <div className="flex justify-center items-center flex-col my-8">
+        <motion.div initial={{width: 0}} animate={{width: '100%'}} exit={{x: window.innerWidth, transition: {duration: 0.5}}} className="flex justify-center items-center flex-col my-8">
             <div className="rounded-lg shadow-lg bg-white max-w-sm">
                 <img className="rounded-t-lg" src={img} alt="" />
                 <div className="p-6">
@@ -72,7 +73,7 @@ const Update = () => {
             >
                 Manage Inventory
             </Link>
-        </div>
+        </motion.div>
     );
 };
 

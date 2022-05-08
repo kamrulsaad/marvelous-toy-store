@@ -1,8 +1,9 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Features = () => {
     return (
-        <div>
+        <motion.div initial={{width: 0}} animate={{width: '100%'}} exit={{x: window.innerWidth}} >
 
             <div className="max-w-screen-xl p-4 bg-white  mx-auto px-4 sm:px-6 lg:px-8 relative py-26 lg:mt-20">
                 <div className="relative">
@@ -88,7 +89,7 @@ const Features = () => {
                 </div>
             </div>
 
-        </div>
+        </motion.div>
     );
 };
 

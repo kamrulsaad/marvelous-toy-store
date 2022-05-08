@@ -3,6 +3,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Slide, toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import { motion } from 'framer-motion';
 
 const AddItem = () => {
 
@@ -29,7 +30,7 @@ const AddItem = () => {
     }
 
     return (
-        <div>
+        <motion.div initial={{width: 0}} animate={{width: '100%'}} exit={{x: window.innerWidth, transition: {duration: 0.5}}} >
             <h1 className='text-5xl text-center my-3 text-sky-600'>Add a New Item</h1>
             <div className="md:flex mx-8 justify-center">
                 <form onSubmit={handleFormSubmit} className="mb-3 xl:w-96">
@@ -88,7 +89,7 @@ const AddItem = () => {
                         className=" form-control block w-full px-3 py-1.5 text-base font-normal text-gray-200 cursor-pointer bg-blue-600 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 mb-2" value='Add Item' />
                 </form>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

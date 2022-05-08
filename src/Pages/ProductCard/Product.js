@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useProducts from '../../hooks/useProducts';
+import { motion } from 'framer-motion';
 
 const Product = ({pd}) => {
 
@@ -36,7 +37,7 @@ const Product = ({pd}) => {
     }
 
     return (
-        <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
+        <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
             
             <img
                 src={img}
@@ -78,7 +79,7 @@ const Product = ({pd}) => {
                     Delete
                 </button>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

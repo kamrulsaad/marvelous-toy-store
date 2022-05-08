@@ -6,6 +6,7 @@ import axiosPrivate from '../../API/axiosPrivate';
 import auth from '../../firebase.init';
 import Product from '../ProductCard/Product';
 import Loading from '../Shared/Loading/Loading';
+import { motion } from 'framer-motion';
 
 const MyItems = () => {
 
@@ -38,11 +39,11 @@ const MyItems = () => {
     if(!myItmes.length) return <Loading>Sorry, No Data Found</Loading>
     
     return (
-        <div className="grid gap-8 lg:mx-20 my-4 mx-auto lg:grid-cols-3 max-w-sm  lg:max-w-full lg:py-10">
+        <motion.div initial={{width: 0}} animate={{width: '100%'}} exit={{x: window.innerWidth, transition: {duration: 0.5}}} className="grid gap-8 lg:mx-20 my-4 mx-auto lg:grid-cols-3 max-w-sm  lg:max-w-full lg:py-10">
             {
                 myItmes.map(item => <Product key={item._id} pd={item}></Product>)
             }
-        </div>
+        </motion.div>
     );
 };
 

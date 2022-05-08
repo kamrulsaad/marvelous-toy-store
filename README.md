@@ -54,6 +54,7 @@ I have built this website following the requirements provided.
 - `imgbb`
 - `photopea`
 - `tinypng`
+- `framer-motion`
 
 ------
 

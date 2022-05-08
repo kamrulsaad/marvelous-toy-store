@@ -6,6 +6,7 @@ import auth from '../../firebase.init'
 import Loading from '../Shared/Loading/Loading';
 import { useNavigate } from 'react-router-dom';
 import useToken from '../../hooks/useToken';
+import { motion } from 'framer-motion';
 
 const Register = () => {
 
@@ -33,7 +34,7 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <motion.div initial={{width: 0}} animate={{width: '100%'}} exit={{x: window.innerWidth, transition: {duration: 0.5}}} >
             <section>
                 <div className="container px-6 py-4 h-full mx-auto">
                     <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
@@ -106,7 +107,7 @@ const Register = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </motion.div>
     );
 };
 
