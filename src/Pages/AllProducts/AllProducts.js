@@ -12,7 +12,7 @@ const AllProducts = () => {
 
     return (
         <div className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
-            <h1 className='text-5xl text-center font-medium my-2'>Inventory</h1>
+            <h1 className='text-5xl text-center font-medium my-2'>Manage Inventory</h1>
             <section class="bg-white py-4">
                 <div>
                     <div class="flex flex-wrap">

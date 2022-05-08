@@ -10,6 +10,8 @@ const TableRow = ({ pd }) => {
     const { supplier, name, packaged, stock, price, _id } = pd;
 
     const handleDelete = id => {
+        const agreed = window.confirm("Are You Sure you want to delete this item?")
+        if(!agreed) return
         const url = `http://localhost:5000/products/${id}`
         axios.delete(url)
         .then(res => {
@@ -23,28 +25,11 @@ const TableRow = ({ pd }) => {
         <>
             <tr>
                 <td
-                    class=" text-dark
-                           font-medium
-                           text-base
-                           py-5
-                           px-2
-                           bg-red-100
-                           border-b border-l border-[#E8E8E8]
-                           "
-                >
+                    class=" text-dark font-medium text-base py-5 px-2 bg-red-100 border-b border-l border-[#E8E8E8] ">
                         {name}
                 </td>
                 <td
-                    class="
-                           text-center text-dark
-                           font-medium
-                           text-base
-                           py-5
-                           px-2
-                           bg-white
-                           border-b border-[#E8E8E8]
-                           "
-                >
+                    class=" text-center text-dark font-medium text-base py-5 px-2 bg-white border-b border-[#E8E8E8] ">
                     {price}
                 </td>
                 <td
@@ -52,82 +37,27 @@ const TableRow = ({ pd }) => {
                     {stock || 'Sold Out' }
                 </td>
                 <td
-                    class="
-                           text-center text-dark
-                           font-medium
-                           text-base
-                           py-5
-                           px-2
-                           bg-white
-                           border-b border-[#E8E8E8]
-                           "
-                >
+                    class=" text-center text-dark font-medium text-base py-5 px-2 bg-white border-b border-[#E8E8E8] ">
                     {supplier}
                 </td>
                 <td
-                    class="
-                           text-center text-dark
-                           font-medium
-                           text-base
-                           py-5
-                           px-2
-                           bg-[#F3F6FF]
-                           border-b border-[#E8E8E8]
-                           "
-                >
+                    class=" text-center text-dark font-medium text-base py-5 px-2 bg-[#F3F6FF] border-b border-[#E8E8E8] "
+>
                     {packaged}
                 </td>
                 <td
-                    class="
-                           text-center text-dark
-                           font-medium
-                           text-base
-                           py-5
-                           px-2
-                           bg-white
-                           border-b border-r border-[#E8E8E8]
-                           "
-                >
+                    class=" text-center text-dark font-medium text-base py-5 px-2 bg-white border-b border-r border-[#E8E8E8] ">
                     <Link
                         to={`/inventory/${_id}`}
-                        class="
-                              border border-sky-200
-                              py-2
-                              px-6
-                              text-sky-400
-                              inline-block
-                              rounded
-                              transition-all duration-300
-                              hover:bg-sky-600 hover:text-white
-                              "
-                    >
+                        class=" border border-sky-200 py-2 px-6 text-sky-400 inline-block rounded transition-all duration-300 hover:bg-sky-600 hover:text-white ">
                         Update
                     </Link>
                 </td>
                 <td
-                    class="
-                           text-center text-dark
-                           font-medium
-                           text-base
-                           py-5
-                           px-2
-                           bg-white
-                           border-b border-r border-[#E8E8E8]
-                           "
-                >
+                    class=" text-center text-dark font-medium text-base py-5 px-2 bg-white border-b border-r border-[#E8E8E8] ">
                     <button
                     onClick={() => handleDelete(_id)}
-                        class="
-                              border border-red-200
-                              py-2
-                              px-6
-                              text-red-400
-                              inline-block
-                              rounded
-                              transition-all duration-300
-                              hover:bg-red-600 hover:text-white
-                              "
-                    >
+                        class=" border border-red-200 py-2 px-6 text-red-400 inline-block rounded transition-all duration-300 hover:bg-red-600 hover:text-white ">
                         Delete
                     </button>
                 </td>

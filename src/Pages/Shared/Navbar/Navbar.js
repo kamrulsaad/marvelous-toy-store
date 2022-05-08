@@ -36,24 +36,29 @@ const Nav = () => {
                 Inventory
               </Link>
             </li>
-            <li>
-              <Link
-                to="/addItem"
-                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
-              >
-                Add Item
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/myItems"
-                aria-label="Product pricing"
-                title="Product pricing"
-                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
-              >
-                My Items
-              </Link>
-            </li>
+            {
+              user &&
+              <>
+                <li>
+                  <Link
+                    to="/myItems"
+                    aria-label="Product pricing"
+                    title="Product pricing"
+                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
+                  >
+                    My Items
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/addItem"
+                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-sky-400"
+                  >
+                    Add Item
+                  </Link>
+                </li>
+              </>
+            }
             <li>
               <Link
                 to="/"
@@ -172,24 +177,27 @@ const Nav = () => {
                           Inventory
                         </Link>
                       </li>
-                      <li>
-                        <Link
-                          to="/addItem"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
-                        >
-                          Add Item
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/"
-                          aria-label="Product pricing"
-                          title="Product pricing"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
-                        >
-                          My Items
-                        </Link>
-                      </li>
+                      {user &&
+                        <>
+                          <li>
+                            <Link
+                              to="/addItem"
+                              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
+                            >
+                              Add Item
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/"
+                              aria-label="Product pricing"
+                              title="Product pricing"
+                              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-red-400"
+                            >
+                              My Items
+                            </Link>
+                          </li>
+                        </>}
                       <li>
                         <Link
                           to="/"

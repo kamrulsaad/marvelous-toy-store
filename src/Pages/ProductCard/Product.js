@@ -9,6 +9,8 @@ const Product = ({pd}) => {
     const {supplier, img, name, packaged, about, stock, _id, price} = pd; 
 
     const handleDelete = id => {
+        const agreed = window.confirm("Are You Sure you want to delete this item?")
+        if(!agreed) return
         const url = `http://localhost:5000/products/${id}`
         axios.delete(url)
         .then(res => {
@@ -19,6 +21,7 @@ const Product = ({pd}) => {
 
     return (
         <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
+            
             <img
                 src={img}
                 className="object-cover w-full h-64"
