@@ -19,7 +19,7 @@ const Animatedroute = () => {
         <AnimatePresence>
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<Home></Home>}></Route>
-                <Route path="/inventory" element={<RequireAuth><AllProducts></AllProducts></RequireAuth>}></Route>
+                <Route path="/inventory" element={<AllProducts></AllProducts>}></Route>
                 <Route path="/inventory/:id" element={<RequireAuth><Update></Update></RequireAuth>}></Route>
                 <Route path="/myItems" element={<RequireAuth><MyItems></MyItems></RequireAuth>}></Route>
                 <Route path="/addItem" element={<RequireAuth><AddItem></AddItem></RequireAuth>}></Route>
